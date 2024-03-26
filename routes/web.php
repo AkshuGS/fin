@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/add-vendors', [App\Http\Controllers\CommonController::class, 'addvendors'])->name('addvendors');
     Route::get('/add-money/userid', [App\Http\Controllers\CommonController::class, 'addmoney'])->name('addmoney');
     Route::get('/monthly', [App\Http\Controllers\CommonController::class, 'monthly'])->name('monthly');
-    Route::get('/weekly', [App\Http\Controllers\CommonController::class, 'weekly'])->name('weekly');
+    
 
 
 
