@@ -25,21 +25,27 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 Route::middleware('auth')->group(function(){
     Route::get('/dashboard', [App\Http\Controllers\CommonController::class, 'dashboard'])->name('dashboard');
     // all customers list
-    Route::get('/customers', [App\Http\Controllers\CommonController::class, 'customers'])->name('dashboard');
-
+    Route::get('/customers', [App\Http\Controllers\CommonController::class, 'customers'])->name('customers');
+    //add new customer
     Route::get('/add-customers', [App\Http\Controllers\CommonController::class, 'addcustomers'])->name('addcustomers');
-    Route::get('/customers-details', [App\Http\Controllers\CommonController::class, 'customersdetails'])->name('customersdetails');
+    //simgle customer details
+    Route::get('/customers-details/{id}', [App\Http\Controllers\CommonController::class, 'customersdetails'])->name('customersdetails');
+    
     Route::get('/trasactions', [App\Http\Controllers\CommonController::class, 'trasactions'])->name('trasactions');
     Route::get('/user-trasactions/userid', [App\Http\Controllers\CommonController::class, 'usertrasactions'])->name('usertrasactions');
 
     Route::get('/trasactions/txt', [App\Http\Controllers\CommonController::class, 'singletrasactions'])->name('singletrasactions');
 
-    Route::get('/give-loan/userid', [App\Http\Controllers\CommonController::class, 'giveloan'])->name('giveloan');
+    Route::get('/give-loan/{id}', [App\Http\Controllers\CommonController::class, 'giveloan'])->name('giveloan');
     Route::get('/vendors', [App\Http\Controllers\CommonController::class, 'vendors'])->name('vendors');
     Route::get('/vendors-details/id', [App\Http\Controllers\CommonController::class, 'vendorsdetails'])->name('vendorsdetails');
     Route::get('/add-vendors', [App\Http\Controllers\CommonController::class, 'addvendors'])->name('addvendors');
     Route::get('/add-money/userid', [App\Http\Controllers\CommonController::class, 'addmoney'])->name('addmoney');
     Route::get('/monthly', [App\Http\Controllers\CommonController::class, 'monthly'])->name('monthly');
+    //add new customer
+    Route::post('add-customer', [App\Http\Controllers\CommonController::class, 'addCustomer'])->name('add.customer');
+
+    Route::post('give-loan', [App\Http\Controllers\CommonController::class, 'sanctionLoan'])->name('give.loan');
     
 
 

@@ -151,11 +151,12 @@
                                 <div class="card-body">
                                     <div class="text-center">
                                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="img/undraw_posting_photo.svg" alt="...">
+                                            src="/img/undraw_posting_photo.svg" alt="...">
                                     </div>
-                                    <p><b>Name:</b> Akshay</p>
-                                    <p><b>DOJ:</b> 15/07/2024</p>
-                                    <p><b>Place:</b> Sankeshwar</p>
+                                    <p><b>Name:</b> {{$customer->fname}} {{$customer->lname}}</p>
+                                    <p><b>DOB:</b> {{$customer->dob}}</p>
+                                    <p><b>Place:</b> {{$customer->address}}</p>
+                                    <p><b>Joined:</b> {{$customer->created_at->format('Y-m-d')}}</p>
                                    
                                    
                                 </div>
@@ -167,7 +168,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Loan Activities</h6>
                                 </div>
                                 <div class="card-body">
-                                  <a href="/give-loan/userid"> <button class="btn btn-danger btn-circle btn-lg"><i class="fas fa-money-bill-alt"></i></button>
+                                  <a href="/give-loan/{{$customer->id}}"> <button class="btn btn-danger btn-circle btn-lg"><i class="fas fa-money-bill-alt"></i></button>
                                    Give loan</a>
                                    <a href="/deposite">
                                    <button class="btn btn-success btn-circle btn-lg"><i class="fas fa-money-check"></i></button>

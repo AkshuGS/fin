@@ -41,8 +41,8 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">All Customers</h6>
-                            <button class="btn-circle"><a href="/add-customers">+</a></button>
+                            <h6 class="m-0 font-weight-bold text-primary">All Customers   <a class="btn btn-success btn-circle" href="/add-customers"><i class="fas fa-plus"></i></a></h6>
+                          
                         </div>
                         
                         <div class="card-body">
@@ -51,34 +51,29 @@
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Position</th>
+                                            <th>Profession</th>
                                             <th>Address</th>
-                                            <th>Age</th>
-                                            <th>Loans</th>
-                                            <th>Amount</th>
+                                            <th>Email</th>
+                                            <th>Joined</th>
+                                           
                                         </tr>
                                     </thead>
-                                    {{-- <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Loans</th>
-                                            <th>Amount</th>
-                                        </tr>
-                                    </tfoot> --}}
+                                    
                                     <tbody>
+                                        @forelse ($customers as $customer)
                                         <tr>
-                                            <td> <a href="/customers-details" class="btn">
-                                                <span class="text">Tiger Nixon</span>
+                                            <td><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> <a href="/customers-details/{{$customer->id}}" class="btn">
+                                                <span class="text">{{$customer->fname}} {{$customer->lname}}</span>
                                              </a></td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2</td>
-                                            <td>50000</td>
+                                            <td>{{$customer->profession}}</td>
+                                            <td>{{$customer->address}}</td>
+                                            <td>{{$customer->email}}</td>
+                                            <td>{{$customer->created_at}}</td>
+                                            {{-- <td>{{$customer->profession}}</td> --}}
                                         </tr>
+                                        @empty
+                                        <p>No users</p>
+                                        @endforelse
 
                                     </tbody>
                                 </table>
